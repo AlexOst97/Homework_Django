@@ -4,12 +4,8 @@
       <h1 class="display-3 fw-bold">ТехноМир</h1>
       <h3 class="fw-normal text-muted mb-3">Лучший магазин техники</h3>
       <div class="d-flex gap-3 justify-content-center lead fw-normal">
-        <a class="icon-link" href="#">
-          Узнать больше
-          <svg class="bi"><use xlink:href="#chevron-right"/></svg>
-        </a>
-        <a class="icon-link" href="#">
-          Купить
+        <a class="icon-link" href="{% url 'catalog:product_create' %}">
+          Создать новый продукт
           <svg class="bi"><use xlink:href="#chevron-right"/></svg>
         </a>
       </div>
