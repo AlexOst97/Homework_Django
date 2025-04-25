@@ -13,13 +13,21 @@
       </div>
       <div class="offcanvas-body">
         <ul class="navbar-nav flex-grow-1 justify-content-between">
-          <li class="nav-item"><a class="nav-link" href="{% url 'catalog:product_list' %}">
+          <li class="nav-item"><a class="nav-link" href="#">
             <svg class="bi" width="24" height="24"><use xlink:href="#aperture"/></svg>
           </a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Адрес</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Каталог</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Сервис</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Поддержка</a></li>
+          <li class="nav-item"><a class="nav-link" href="{% url 'catalog:product_list' %}">Главная</a></li>
+            {% if user.is_authenticated %}
+          <li class="nav-item">
+              <form method="post" action="{% url 'users:logout' %}">
+                  {% csrf_token %}
+                  <button type="submit" class="nav-link"> Выйти </button>
+              </form>
+          </li>
+            {% else %}
+          <li class="nav-item"><a class="nav-link" href="{% url 'users:login' %}">Войти</a></li>
+          <li class="nav-item"><a class="nav-link" href="{% url 'users:register' %}">Зарегистрироваться</a></li>
+            {% endif %}
           <li class="nav-item"><a class="nav-link" href="#">
             <svg class="bi" width="24" height="24"><use xlink:href="#cart"/></svg>
           </a></li>
