@@ -55,3 +55,9 @@ class ProductForm(forms.ModelForm):
         if price_buy < 0:
             raise ValidationError('Неверно указана цена')
         return price_buy
+
+
+class ModeratorForm(forms.ModelForm):
+    class Meta:
+        model = Product
+        fields = ['is_active',]
